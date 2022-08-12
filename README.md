@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 # passport-boilerplate
 
 
@@ -21,6 +31,7 @@ This is your passport boilerplate.
 7. `git pull origin main` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
 8. `git push origin main`
 
+
 #### Setup your login (THE APP WON'T WORK until you do, no VIEWS are setup, or the landing route)
 
 0. Setup your database connection string
@@ -30,6 +41,4 @@ This is your passport boilerplate.
 4. Setup your callback routes in your `routes/index`
 5. Setup a view and test your login!
 
-#### Make a commit 
 
-```git commit -m "setup up oauth and User Model"```
