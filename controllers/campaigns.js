@@ -5,6 +5,5 @@ module.exports = {
 }
 
 function newCampaign(req, res){
-
-res.render('campaigns/new.ejs')
+    res.render('campaigns/new.ejs')
 }
