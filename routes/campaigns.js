@@ -1,6 +1,13 @@
-const router = require('express').Router();
+var express = require('express');
+var router = express.Router();
 const passport = require('passport');
 const campaignController = require('../controllers/campaigns');
 const isLoggedIn = require('../config/auth');
 
-router.get('/new', isLoggedIn, campaignController.new)
+//route to the new page
+router.get('/new', isLoggedIn, campaignController.new);
+//create a new campaign
+router.post('/', isLoggedIn, campaignController.create);
+
+
+module.exports = router;
