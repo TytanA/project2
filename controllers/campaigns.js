@@ -3,7 +3,8 @@ const Campaign = require('../models/campaign')
 module.exports = {
     new: newCampaign,
     create,
-    index
+    index,
+    show
 }
 
 function newCampaign(req, res){
@@ -39,4 +40,17 @@ function create(req, res){
     })
 
     res.redirect('campaigns/new')
+}
+
+async function show(req, res){
+
+    try{
+        const campaignDocument = await Campaign.findById(req.params.id)
+
+        res.render('movies/show', {
+            campaignDocument: campaigns
+        })
+    }catch(err){
+
+    }
 }

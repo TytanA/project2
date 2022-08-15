@@ -11,4 +11,5 @@ router.post('/', isLoggedIn, campaignController.create);
 
 router.get('/', campaignController.index);
 
+router.get('/:id', campaignController.show)
 module.exports = router;
