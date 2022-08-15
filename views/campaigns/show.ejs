@@ -6,6 +6,29 @@
     <td><%=campaign.setting  %> </td><br>
     <td><%=campaign.equipAndGold  %> </td><br>
     <td><%=campaign.description  %> </td>
-
 </tbody>   
+
+<tbody>
+    <h3>Sessions</h3>
+    <% campaign.gameSession.forEach(function(c) { %>
+     <td><%= c.sessionTitle %></td><br>
+     <td><%= c.encounters %> </td><br>
+     <td><%= c.treasure %> </td><br>
+     <td><%= c.sessionDescrip %> </td><br>
+    <% }) %>
+</tbody>
+<tbody>
+    <% if (user?._id.equals(campaign.user)) { %>
+        <h4>New Session</h4>
+        <form method="POST" action="/campaigns/<%= campaign._id %>/sessions">
+            <label>Session Title:
+            <input type="text" name="sessionTitle"></label><br>
+            <label>Encounters:<input type='text' name='encounters'></label><br>
+            <label>Treasure <input type="text" name="treasure"></label><br>
+            <label>Session Description<input type="text" name="sessionDescrip"></label><br>
+            <input type="submit" value="Add Session">
+        </form>
+    <% } %>
+</tbody>
+
 <%- include('../partials/footer') %> 
