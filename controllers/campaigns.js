@@ -43,14 +43,14 @@ function create(req, res){
 }
 
 async function show(req, res){
-
+    
     try{
-        const campaignDocument = await Campaign.findById(req.params.id)
+        let campaignDocument = await Campaign.findById(req.params.id);
 
-        res.render('movies/show', {
-            campaignDocument: campaigns
+        res.render('campaigns/show', {
+            campaign: campaignDocument
         })
     }catch(err){
-
+        res.send(err)
     }
 }

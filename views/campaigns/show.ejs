@@ -1,11 +1,11 @@
 <%- include('../partials/header') %>
 <h1> this is show page</h1>
+<tbody>
+    <td><%=campaign.titleName  %> </td><br>
+    <td><%=campaign.characterNames.join(', ')  %> </td><br>
+    <td><%=campaign.setting  %> </td><br>
+    <td><%=campaign.equipAndGold  %> </td><br>
+    <td><%=campaign.description  %> </td>
 
-<% campaigns.forEach(function(c) { %>
-    <tr>
-        <td><%= c.titleName %> </td>
-        <td><a href='/campaigns/<%= c._id %>'>DETAILS</a> </td>
-    </tr>
-
-<% }) %>
+</tbody>   
 <%- include('../partials/footer') %> 

@@ -6,10 +6,12 @@ const isLoggedIn = require('../config/auth');
 
 //route to the new page
 router.get('/new', isLoggedIn, campaignController.new);
-//create a new campaign
-router.post('/', isLoggedIn, campaignController.create);
 
 router.get('/', campaignController.index);
 
 router.get('/:id', campaignController.show)
+
+//create a new campaign
+router.post('/', isLoggedIn, campaignController.create);
+
 module.exports = router;
