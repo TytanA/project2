@@ -2,11 +2,24 @@ const Campaign = require('../models/campaign')
 
 module.exports = {
     new: newCampaign,
-    create
+    create,
+    index
 }
 
 function newCampaign(req, res){
     res.render('campaigns/new.ejs')
+}
+
+async function index(req, res){
+    try{
+        const campaignDocument = await Campaign.find({})
+        res.render('campaigns/index.ejs', {
+            campaigns: campaignDocument
+        })
+        } catch(err){
+
+
+    }
 }
 
 function create(req, res){

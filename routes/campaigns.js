@@ -9,5 +9,6 @@ router.get('/new', isLoggedIn, campaignController.new);
 //create a new campaign
 router.post('/', isLoggedIn, campaignController.create);
 
+router.get('/', campaignController.index);
 
 module.exports = router;
