@@ -11,10 +11,17 @@
 <tbody>
     <h3>Sessions</h3>
     <% campaign.gameSession.forEach(function(c) { %>
-     <td><%= c.sessionTitle %></td><br>
-     <td><%= c.encounters %> </td><br>
-     <td><%= c.treasure %> </td><br>
-     <td><%= c.sessionDescrip %> </td><br>
+        <td><%= c.sessionTitle %></td><br>
+        <td><%= c.encounters %> </td><br>
+        <td><%= c.treasure %> </td><br>
+        <td><%= c.sessionDescrip %> </td><br>
+    
+        <% if (user?._id.equals(campaign.user)) { %>
+            <form action="/sessions/<%= c._id %>?_method=DELETE" method="POST">
+                <button type="submit">DELETE</button>
+            </form> 
+    <% } %>
+
     <% }) %>
 </tbody>
 <tbody>

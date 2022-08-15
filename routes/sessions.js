@@ -5,5 +5,6 @@ const sessionController = require('../controllers/sessions');
 const isLoggedIn = require('../config/auth');
 
 router.post('/campaigns/:id/sessions', sessionController.create);
+router.delete('/sessions/:id', sessionController.delete);
 
 module.exports = router;
