@@ -7,6 +7,9 @@
     <td><%=campaign.equipAndGold  %> </td><br>
     <td><%=campaign.description  %> </td>
     <% if (user?._id.equals(campaign.user)) { %>
+        <form action="/campaigns/<%= campaign._id %>/edit" method="GET">
+            <button type="submit">EDIT</button>
+        </form>
         <form action="/campaigns/<%= campaign._id %>?_method=DELETE" method="POST">
             <button type="submit">DELETE</button>
         </form> 

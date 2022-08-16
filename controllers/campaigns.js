@@ -5,7 +5,9 @@ module.exports = {
     create,
     index,
     show,
-    delete: deleteCampaign
+    delete: deleteCampaign,
+    edit,
+    update
 }
 
 function newCampaign(req, res){
@@ -29,12 +31,12 @@ function create(req, res){
     // white space using a reg expression that was used in class.
     req.body.characterNames = req.body.characterNames.replace(/\s*,\s*/g, ',')
     // then splitting it up 
-    req.body.characterNames = req.body.characterNames.split(',')
-    req.body.user = req.user._id
+    req.body.characterNames = req.body.characterNames.split(',');
+    req.body.user = req.user._id;
     Campaign.create(req.body, function (err, campaignDocument){
         if (err){
             console.log(err, 'this is the error');
-            return res.render('campaigns/new.ejs')
+            return res.redirect('/')
         }
         console.log(campaignDocument, '<-- newly created campaign')
         // res.redirect() will redirect to the campaigns page once that is built
@@ -64,4 +66,35 @@ function deleteCampaign(req, res){
             res.send(err)
         }
     })
+}
+
+async function edit(req, res){
+    try{
+        let campaignDocument = await Campaign.findById(req.params.id);
+
+        res.render('campaigns/edit', {
+            campaign: campaignDocument
+        })
+    }catch(err){
+        res.send(err)
+    }
+}
+
+async function update(req,res){
+   
+    try{
+        let campaignDocument = await Campaign.findByIdAndUpdate(req.params.id);
+        req.body.characterNames = req.body.characterNames.replace(/\s*,\s*/g, ',');
+        req.body.characterNames = req.body.characterNames.split(',');
+        campaignDocument.titleName = req.body.titleName;
+        campaignDocument.setting = req.body.setting;
+        campaignDocument.description = req.body.description;
+        campaignDocument.equipAndGold = req.body.equipAndGold;
+        campaignDocument.characterNames = req.body.characterNames;
+        campaignDocument.save();
+        res.redirect(`${campaignDocument._id}`);
+    }catch(err){
+        res.send(err);
+    }
+    
 }

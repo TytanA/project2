@@ -9,11 +9,11 @@ router.get('/new', isLoggedIn, campaignController.new);
 
 router.get('/', campaignController.index);
 
-router.get('/:id', campaignController.show)
-
+router.get('/:id', campaignController.show);
+router.get('/:id/edit', isLoggedIn, campaignController.edit);
 //create a new campaign
 router.post('/', isLoggedIn, campaignController.create);
-
-router.delete('/:id', campaignController.delete)
+router.put('/:id', isLoggedIn, campaignController.update);
+router.delete('/:id', isLoggedIn, campaignController.delete);
 
 module.exports = router;
