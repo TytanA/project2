@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+<h1> this is the sessions edit page</h1>
+<form action="/sessions/<%= gSession._id %>?_method=PUT" method="POST">
+    <label>Session Title:
+    <input type="text" name="sessionTitle" value="<%= gSession.sessionTitle %> "></label><br>
+    <label>Encounters:<input type='text' name='encounters' value="<%= gSession.encounters %> "></label><br>
+    <label>Treasure <input type="text" name="treasure" value="<%= gSession.treasure %> "></label><br>
+    <label>Session Description<input type="text" name="sessionDescrip" value="<%= gSession.sessionDescrip %> "></label><br>
+    <input type="submit" value="edit Session">
+</form>
+<%- include('../partials/footer') %> 

@@ -25,6 +25,9 @@
         <td><%= c.sessionDescrip %> </td><br>
     
         <% if (user?._id.equals(campaign.user)) { %>
+            <form action="/sessions/<%= c._id %>/edit" method="GET">
+                <button type="submit">EDIT</button>
+            </form>
             <form action="/sessions/<%= c._id %>?_method=DELETE" method="POST">
                 <button type="submit">DELETE</button>
             </form> 
