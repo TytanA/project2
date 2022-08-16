@@ -14,4 +14,6 @@ router.get('/:id', campaignController.show)
 //create a new campaign
 router.post('/', isLoggedIn, campaignController.create);
 
+router.delete('/:id', campaignController.delete)
+
 module.exports = router;

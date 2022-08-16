@@ -4,7 +4,8 @@ module.exports = {
     new: newCampaign,
     create,
     index,
-    show
+    show,
+    delete: deleteCampaign
 }
 
 function newCampaign(req, res){
@@ -53,4 +54,14 @@ async function show(req, res){
     }catch(err){
         res.send(err)
     }
+}
+
+function deleteCampaign(req, res){
+    Campaign.findByIdAndDelete(req.params.id, function(err){
+        res.redirect('/campaigns')
+        if(err){
+            console.log('delete error')
+            res.send(err)
+        }
+    })
 }
