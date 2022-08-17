@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<h1> this is show page</h1>
+<div class="container-sm">
 <form action="/campaigns/<%= campaign._id %>?_method=PUT" method="POST">
     <input type="hidden" name="_id" value="<%= campaign._id %> ">
     <label>Campain Title:</label>
@@ -14,5 +14,5 @@
     <input type="text" name="description" value="<%=campaign.description  %>">
     <input type="submit">
 </form>
-
+</div>
 <%- include('../partials/footer') %> 

@@ -1,18 +1,20 @@
 <%- include('../partials/header') %>
+<div class="container">
 <h1> this is the new page</h1>
-
-
+</div>
+<div class="container-sm">
 <form action="/campaigns" method="POST"> 
     <label>Campain Title:</label>
-    <input type="text" name="titleName" >
+    <input type="text" name="titleName" ><br>
     <label>Characters:</label>
-    <input type="text" name="characterNames" >
+    <input type="text" name="characterNames" ><br>
     <label>Setting:</label>
-    <input type="text" name="setting" >
+    <input type="text" name="setting" ><br>
     <label>Description:</label>
-    <input type="text" name="description" >
+    <input type="text" name="description" ><br>
     <label>Starting Items:</label>
-    <input type="text" name="equipAndGold" >
-    <input type="submit">
+    <input type="text" name="equipAndGold" ><br>
+    <input class='btn btn-secondary' type="submit">
 </form>
+</div>
 <%- include('../partials/footer') %> 

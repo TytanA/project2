@@ -1,21 +1,24 @@
 <%- include('../partials/header') %>
-<h1> this is show page</h1>
+<div class="container"></div>
+<h1> <%=campaign.titleName  %></h1>
+
+<div class="container-sm"></div>
 <tbody>
-    <td><%=campaign.titleName  %> </td><br>
     <td><%=campaign.characterNames.join(', ')  %> </td><br>
     <td><%=campaign.setting  %> </td><br>
     <td><%=campaign.equipAndGold  %> </td><br>
     <td><%=campaign.description  %> </td>
     <% if (user?._id.equals(campaign.user)) { %>
         <form action="/campaigns/<%= campaign._id %>/edit" method="GET">
-            <button type="submit">EDIT</button>
+            <button class='btn btn-secondary' type="submit">EDIT</button>
         </form>
         <form action="/campaigns/<%= campaign._id %>?_method=DELETE" method="POST">
-            <button type="submit">DELETE</button>
-        </form> 
+            <button class='btn btn-secondary' type="submit">DELETE</button>
+        </form> <br><br>
 <% } %>
 </tbody>   
-
+</div>
+<div class="container"></div>
 <tbody>
     <h3>Sessions</h3>
     <% campaign.gameSession.forEach(function(c) { %>
@@ -26,15 +29,17 @@
     
         <% if (user?._id.equals(campaign.user)) { %>
             <form action="/sessions/<%= c._id %>/edit" method="GET">
-                <button type="submit">EDIT</button>
+                <button class='btn btn-secondary' type="submit">EDIT</button>
             </form>
             <form action="/sessions/<%= c._id %>?_method=DELETE" method="POST">
-                <button type="submit">DELETE</button>
-            </form> 
+                <button class='btn btn-secondary' type="submit">DELETE</button>
+            </form> <br>
     <% } %>
 
     <% }) %>
 </tbody>
+</div>
+<div class="container">
 <tbody>
     <% if (user?._id.equals(campaign.user)) { %>
         <h4>New Session</h4>
@@ -48,5 +53,5 @@
         </form>
     <% } %>
 </tbody>
-
+</div>
 <%- include('../partials/footer') %> 
