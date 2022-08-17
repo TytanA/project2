@@ -7,7 +7,8 @@ module.exports = {
     show,
     delete: deleteCampaign,
     edit,
-    update
+    update,
+    myCampaigns
 }
 
 function newCampaign(req, res){
@@ -43,6 +44,20 @@ function create(req, res){
     })
 
     res.redirect('campaigns/new')
+}
+
+async function myCampaigns(req, res){
+    console.log(req.user.id, "this is the user id")
+    // try{
+    //     let campaignDocument = await Campaign.find({
+    //         'user': req.user.id
+    //     })
+    //     res.render('campaigns/index.ejs', {
+    //         campaigns: campaignDocument
+    //     })
+    // }catch(err){
+
+    // }
 }
 
 async function show(req, res){

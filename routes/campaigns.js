@@ -11,6 +11,7 @@ router.get('/', campaignController.index);
 
 router.get('/:id', campaignController.show);
 router.get('/:id/edit', isLoggedIn, campaignController.edit);
+router.get('/mycampaigns', campaignController.myCampaigns)
 //create a new campaign
 router.post('/', isLoggedIn, campaignController.create);
 router.put('/:id', isLoggedIn, campaignController.update);
