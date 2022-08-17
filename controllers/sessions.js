@@ -21,7 +21,7 @@ async function update(req, res){
         sessionDocument.treasure = req.body.treasure;
         sessionDocument.sessionDescrip = req.body.sessionDescrip;
         campaignDocument.save()
-        res.redirect(`campaigns/${campaignDocument._id}`)
+        res.redirect(`/campaigns/${campaignDocument._id}`)
     }catch(err){
         res.send(err)
     }
