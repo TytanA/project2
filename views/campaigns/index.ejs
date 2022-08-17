@@ -1,11 +1,13 @@
 <%- include('../partials/header') %>
-<h1> this is all campaigns</h1>
 <div class="container">
+<h1> this is all campaigns</h1>
+
 <% campaigns.forEach(function(c) { %>
     <tr>
         <td><%= c.titleName %> </td>
         <td><a href='/campaigns/<%= c._id %>'>DETAILS</a> </td><br>
     </tr>
-</div>
+
 <% }) %>
+</div>
 <%- include('../partials/footer') %> 

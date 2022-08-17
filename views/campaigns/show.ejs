@@ -1,9 +1,8 @@
 <%- include('../partials/header') %>
-<div class="container"></div>
-<h1> <%=campaign.titleName  %></h1>
-
-<div class="container-sm"></div>
-<tbody>
+<div class="container">
+<h1> <%=campaign.titleName  %></h1><br>
+</div>
+<div class="container">
     <td><%=campaign.characterNames.join(', ')  %> </td><br>
     <td><%=campaign.setting  %> </td><br>
     <td><%=campaign.equipAndGold  %> </td><br>
@@ -15,10 +14,9 @@
         <form action="/campaigns/<%= campaign._id %>?_method=DELETE" method="POST">
             <button class='btn btn-secondary' type="submit">DELETE</button>
         </form> <br><br>
-<% } %>
-</tbody>   
+<% } %> 
 </div>
-<div class="container"></div>
+<div class="container">
 <tbody>
     <h3>Sessions</h3>
     <% campaign.gameSession.forEach(function(c) { %>
@@ -49,7 +47,7 @@
             <label>Encounters:<input type='text' name='encounters'></label><br>
             <label>Treasure <input type="text" name="treasure"></label><br>
             <label>Session Description<input type="text" name="sessionDescrip"></label><br>
-            <input type="submit" value="Add Session">
+            <input class='btn btn-secondary' type="submit" value="Add Session">
         </form>
     <% } %>
 </tbody>
