@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <h1> this is the sessions edit page</h1>
-<form action="/<%= gSession._id %>?_method=PUT" method="POST">
+<form action="/sessions/<%= gSession._id %>?_method=PUT" method="POST">
     <label>Session Title:
     <input type="text" name="sessionTitle" value="<%= gSession.sessionTitle %> "></label><br>
     <label>Encounters:<input type='text' name='encounters' value="<%= gSession.encounters %> "></label><br>

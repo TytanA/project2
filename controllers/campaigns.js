@@ -11,6 +11,20 @@ module.exports = {
     myCampaigns
 }
 
+async function myCampaigns(req, res){
+    console.log(req.user, 'this is the myCampaigns controller')
+    try{
+        let campaignDocument = await Campaign.find({
+           'user': req.user
+        })
+        res.render('campaigns/index.ejs', {
+            campaigns: campaignDocument
+        })
+    }catch(err){
+        res.send(err)
+    }
+}
+
 function newCampaign(req, res){
     res.render('campaigns/new.ejs')
 }
@@ -43,21 +57,7 @@ function create(req, res){
         // res.redirect() will redirect to the campaigns page once that is built
     })
 
-    res.redirect('campaigns/new')
-}
-
-async function myCampaigns(req, res){
-    console.log(req.user.id, "this is the user id")
-    // try{
-    //     let campaignDocument = await Campaign.find({
-    //         'user': req.user.id
-    //     })
-    //     res.render('campaigns/index.ejs', {
-    //         campaigns: campaignDocument
-    //     })
-    // }catch(err){
-
-    // }
+    res.redirect('campaigns')
 }
 
 async function show(req, res){

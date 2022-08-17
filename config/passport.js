@@ -27,15 +27,15 @@ passport.use(new GoogleStrategy({
   }
 ));
 
-passport.serializeUser(function(user, done) {
-  done(null, user._id);
+passport.serializeUser(function(user, cb) {
+  cb(null, user._id);
 });
 
 
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser(function(id, cb) {
   User.findById(id).then(function(user){
 
-    done(null, user)
+    cb(null, user)
   })
   // Find your User, using your model, and then call done(err, whateverYourUserIsCalled)
   // When you call this done function passport assigns the user document to req.user, which will 

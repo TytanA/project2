@@ -8,10 +8,10 @@ const isLoggedIn = require('../config/auth');
 router.get('/new', isLoggedIn, campaignController.new);
 
 router.get('/', campaignController.index);
-
+router.get('/mycampaigns', campaignController.myCampaigns)
 router.get('/:id', campaignController.show);
 router.get('/:id/edit', isLoggedIn, campaignController.edit);
-router.get('/mycampaigns', campaignController.myCampaigns)
+
 //create a new campaign
 router.post('/', isLoggedIn, campaignController.create);
 router.put('/:id', isLoggedIn, campaignController.update);
