@@ -1,13 +1,12 @@
 <%- include('../partials/header') %>
     <div class="container">
         <div class="col-12 justify-content-center">
-        <h1>
-            <%=campaign.titleName %>
-        </h1><br>
-    </div>
+            <h1>
+                <%=campaign.titleName %>
+            </h1><br>
+        </div>
     <div class="row">
         <div class="col-md-4" m-3>
-            <h4>Campaign stats</h4>
             <h5>Characters</h5>
             <p><%=campaign.characterNames.join(', ')  %></p>
             <h5>Campaign Setting</h5>
@@ -19,57 +18,61 @@
             <p><%=campaign.description  %> </p>
         </div>
     <% if (user?._id.equals(campaign.user)) { %>
-        <div>
-            <a class="btn btn-secondary" href="/campaigns/<%= campaign._id %>/edit ">EDIT</a>
-                <form action="/campaigns/<%= campaign._id %>?_method=DELETE" method="POST">
-                    <button class='btn btn-secondary' type="submit">DELETE</button>
-                </form> <br><br>
+        <div class="input-group mb-3">
+            <form action="/campaigns/<%= campaign._id %>/edit" method="GET">
+                <button class='btn btn-secondary' type="submit">EDIT</button>
+            </form>
+            <form action="/campaigns/<%= campaign._id %>?_method=DELETE" method="POST">
+                <button class='btn btn-secondary' type="submit">DELETE</button>
+            </form>
         </div>
                 <% } %>
     </div>
-    <div class="container">
-        <tbody>
-            <h3>Sessions</h3>
-            <% campaign.gameSession.forEach(function(c) { %>
-                <td>
-                    <%= c.sessionTitle %>
-                </td><br>
-                <td>
-                    <%= c.encounters %>
-                </td><br>
-                <td>
-                    <%= c.treasure %>
-                </td><br>
-                <td>
-                    <%= c.sessionDescrip %>
-                </td><br>
-
-                <% if (user?._id.equals(campaign.user)) { %>
-                    <form action="/sessions/<%= c._id %>/edit" method="GET">
-                        <button class='btn btn-secondary' type="submit">EDIT</button>
-                    </form>
-                    <form action="/sessions/<%= c._id %>?_method=DELETE" method="POST">
-                        <button class='btn btn-secondary' type="submit">DELETE</button>
-                    </form> <br>
-                    <% } %>
-
-                        <% }) %>
-        </tbody>
+    <div class="col-12">
+        <h3>Sessions</h3>
     </div>
+    <% campaign.gameSession.forEach(function(c) { %>
+    <div class="row">
+        <div class="col-md-4">  
+            <h4><%= c.sessionTitle %></h4>
+            <h5>Encounters</h5>
+            <p><%= c.encounters %></p>
+            <h5>Treasure</h5>
+            <p><%= c.treasure %></p>
+        </div>
+        <div class="col">
+            <p><%= c.sessionDescrip %></p>
+        </div> 
+        
+        <% if (user?._id.equals(campaign.user)) { %>
+            <div class="input-group mb-3">
+                <form action="/sessions/<%= c._id %>/edit" method="GET">
+                    <button class='btn btn-secondary' type="submit">EDIT</button>
+                </form>
+                <form action="/sessions/<%= c._id %>?_method=DELETE" method="POST">
+                    <button class='btn btn-secondary' type="submit">DELETE</button>
+                </form>
+            </div>
+        <% } %>
+    <% }) %>
+    </div> 
 </div>
     <div class="container">
-        <tbody>
-            <% if (user?._id.equals(campaign.user)) { %>
+        <% if (user?._id.equals(campaign.user)) { %>
+            <div class="col-6">    
                 <h4>New Session</h4>
                 <form method="POST" action="/campaigns/<%= campaign._id %>/sessions">
-                    <label>Session Title:
-                        <input type="text" name="sessionTitle"></label><br>
-                    <label>Encounters:<input type='text' name='encounters'></label><br>
-                    <label>Treasure <input type="text" name="treasure"></label><br>
-                    <label>Session Description<input type="text" name="sessionDescrip"></label><br>
+                    <label class="form-label">Session Title:</label>
+                    <input class="form-control"ype="text" name="sessionTitle">
+                    <label class="form-label">Encounters:</label>
+                    <input class="form-control"type='text' name='encounters'>
+                    <label class="form-label">Treasure</label>
+                    <input class="form-control"type="text" name="treasure">
+                    <label class="form-label">Session Description</label>
+                    <textarea class="form-control" type="text" name="sessionDescrip" style="height: 200px"></textarea>
                     <input class='btn btn-secondary' type="submit" value="Add Session">
                 </form>
-                <% } %>
-        </tbody>
+            </div>  
+        <% } %>
     </div>
     <%- include('../partials/footer') %>
