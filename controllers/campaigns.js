@@ -11,45 +11,45 @@ module.exports = {
     myCampaigns
 }
 
-async function myCampaigns(req, res){
+async function myCampaigns(req, res) {
     console.log(req.user, 'this is the myCampaigns controller')
-    try{
+    try {
         let campaignDocument = await Campaign.find({
-           'user': req.user
+            'user': req.user
         })
         res.render('campaigns/index.ejs', {
             campaigns: campaignDocument
         })
-    }catch(err){
+    } catch (err) {
         res.send(err)
     }
 }
 
-function newCampaign(req, res){
+function newCampaign(req, res) {
     res.render('campaigns/new.ejs')
 }
 
-async function index(req, res){
-    try{
+async function index(req, res) {
+    try {
         const campaignDocument = await Campaign.find({})
         res.render('campaigns/index.ejs', {
             campaigns: campaignDocument
         })
-        } catch(err){
+    } catch (err) {
 
 
     }
 }
 
-function create(req, res){
+function create(req, res) {
     // i need to convert the string of characterNames, into an array, first getting rid of
     // white space using a reg expression that was used in class.
     req.body.characterNames = req.body.characterNames.replace(/\s*,\s*/g, ',')
     // then splitting it up 
     req.body.characterNames = req.body.characterNames.split(',');
     req.body.user = req.user._id;
-    Campaign.create(req.body, function (err, campaignDocument){
-        if (err){
+    Campaign.create(req.body, function (err, campaignDocument) {
+        if (err) {
             console.log(err, 'this is the error');
             return res.redirect('/')
         }
@@ -60,44 +60,44 @@ function create(req, res){
     res.redirect('campaigns')
 }
 
-async function show(req, res){
-    
-    try{
+async function show(req, res) {
+
+    try {
         let campaignDocument = await Campaign.findById(req.params.id);
 
         res.render('campaigns/show', {
             campaign: campaignDocument
         })
-    }catch(err){
+    } catch (err) {
         res.send(err)
     }
 }
 
-function deleteCampaign(req, res){
-    Campaign.findByIdAndDelete(req.params.id, function(err){
+function deleteCampaign(req, res) {
+    Campaign.findByIdAndDelete(req.params.id, function (err) {
         res.redirect('/campaigns')
-        if(err){
+        if (err) {
             console.log('delete error')
             res.send(err)
         }
     })
 }
 
-async function edit(req, res){
-    try{
+async function edit(req, res) {
+    try {
         let campaignDocument = await Campaign.findById(req.params.id);
 
         res.render('campaigns/edit', {
             campaign: campaignDocument
         })
-    }catch(err){
+    } catch (err) {
         res.send(err)
     }
 }
 
-async function update(req,res){
-   
-    try{
+async function update(req, res) {
+
+    try {
         let campaignDocument = await Campaign.findByIdAndUpdate(req.params.id);
         req.body.characterNames = req.body.characterNames.replace(/\s*,\s*/g, ',');
         req.body.characterNames = req.body.characterNames.split(',');
@@ -108,8 +108,8 @@ async function update(req,res){
         campaignDocument.characterNames = req.body.characterNames;
         campaignDocument.save();
         res.redirect(`${campaignDocument._id}`);
-    }catch(err){
+    } catch (err) {
         res.send(err);
     }
-    
+
 }

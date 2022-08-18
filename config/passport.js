@@ -5,35 +5,35 @@ const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../models/user')
 // configuring Passport!
 passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_SECRET,
-    callbackURL: process.env.GOOGLE_CALLBACK
-  },
-  async function(accessToken, refreshToken, profile, cb) {
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_SECRET,
+  callbackURL: process.env.GOOGLE_CALLBACK
+},
+  async function (accessToken, refreshToken, profile, cb) {
     // a user has logged in via OAuth!
     // refer to the lesson plan from earlier today in order to set this up
-    let user = await User.findOne({googleID: profile.id});
+    let user = await User.findOne({ googleID: profile.id });
     if (user) return cb(null, user);
     try {
-        user= await User.create({
-          googleId: profile.id,
-          email: profile.emails[0].value,
-        });
-        console.log(user)
-        return cb(null, user);
-    } catch(err){
+      user = await User.create({
+        googleId: profile.id,
+        email: profile.emails[0].value,
+      });
+      console.log(user)
+      return cb(null, user);
+    } catch (err) {
       return cb(err);
     }
   }
 ));
 
-passport.serializeUser(function(user, cb) {
+passport.serializeUser(function (user, cb) {
   cb(null, user._id);
 });
 
 
-passport.deserializeUser(function(id, cb) {
-  User.findById(id).then(function(user){
+passport.deserializeUser(function (id, cb) {
+  User.findById(id).then(function (user) {
 
     cb(null, user)
   })

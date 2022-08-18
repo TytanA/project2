@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const user = require('./user');
 
-const gameSessionSchema = new mongoose.Schema ({
+const gameSessionSchema = new mongoose.Schema({
     sessionTitle: String,
     encounters: String,
-    treasure: String, 
+    treasure: String,
     sessionDescrip: String,
 });
 
@@ -20,7 +20,7 @@ const campaignSchema = mongoose.Schema({
     equipAndGold: String,
     picture: String,
     gameSession: [gameSessionSchema],
-    user: {type: mongoose.Schema.Types.ObjectId, ref: user, required: true}
+    user: { type: mongoose.Schema.Types.ObjectId, ref: user, required: true }
 })
 
 

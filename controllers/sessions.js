@@ -7,12 +7,12 @@ module.exports = {
     update
 }
 
-async function update(req, res){
+async function update(req, res) {
     console.log(req.params.id, '<-req.params.id')
-    try{
+    try {
         const campaignDocument = await Campaign.findOne({
             'gameSession._id': req.params.id,
-            
+
         })
         const sessionDocument = campaignDocument.gameSession.id(req.params.id);
 
@@ -22,16 +22,16 @@ async function update(req, res){
         sessionDocument.sessionDescrip = req.body.sessionDescrip;
         campaignDocument.save()
         res.redirect(`/campaigns/${campaignDocument._id}`)
-    }catch(err){
+    } catch (err) {
         res.send(err)
     }
 }
 
-async function edit(req, res){
-    try{
+async function edit(req, res) {
+    try {
         const campaignDocument = await Campaign.findOne({
             'gameSession._id': req.params.id,
-            
+
         })
         const sessionDocument = campaignDocument.gameSession.id(req.params.id);
 
@@ -39,27 +39,27 @@ async function edit(req, res){
             campaign: campaignDocument,
             gSession: sessionDocument
         })
-    
-    }catch(err){
+
+    } catch (err) {
         res.send(err)
     }
 }
 
-async function create(req, res){
+async function create(req, res) {
 
-    try{
+    try {
         let campaignDocument = await Campaign.findById(req.params.id);
         campaignDocument.gameSession.push(req.body);
         console.log(campaignDocument);
-        campaignDocument.save(function(err){
+        campaignDocument.save(function (err) {
             res.redirect(`/campaigns/${req.params.id}`)
         })
-    }catch(err){
+    } catch (err) {
         res.send(err)
     }
 }
 
-async function deleteSession(req, res){
+async function deleteSession(req, res) {
     try {
         const campaignDocument = await Campaign.findOne({
             'gameSession._id': req.params.id
@@ -67,7 +67,7 @@ async function deleteSession(req, res){
         campaignDocument.gameSession.remove(req.params.id)
         await campaignDocument.save()
         res.redirect(`/campaigns/${campaignDocument._id}`)
-    }catch(err){
+    } catch (err) {
         res.send(err)
     }
 
