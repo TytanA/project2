@@ -5,8 +5,7 @@ const gameSessionSchema = new mongoose.Schema ({
     sessionTitle: String,
     encounters: String,
     treasure: String, 
-    sessionDescrip: String
-
+    sessionDescrip: String,
 });
 
 
@@ -19,6 +18,7 @@ const campaignSchema = mongoose.Schema({
     setting: String,
     description: String,
     equipAndGold: String,
+    picture: String,
     gameSession: [gameSessionSchema],
     user: {type: mongoose.Schema.Types.ObjectId, ref: user, required: true}
 })

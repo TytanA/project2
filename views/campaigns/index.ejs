@@ -1,13 +1,16 @@
 <%- include('../partials/header') %>
 <div class="container">
-<h1> this is all campaigns</h1>
-
-<% campaigns.forEach(function(c) { %>
-    <tr>
-        <td><%= c.titleName %> </td>
-        <td><a href='/campaigns/<%= c._id %>'>DETAILS</a> </td><br>
-    </tr>
-
-<% }) %>
+    <div class="row">
+        <% campaigns.forEach(function(c) { %>
+            <div class="col-sm-12 col-md-6 col-lg-3 card text-primary bg-secondary m-3">
+                <a href='/campaigns/<%= c._id %>'><img class="card-img" src="<%= c.picture %>" style='max-height:300px' alt="Card image">
+                <div class="card-img-overlay">
+                    <h5 class="card-title"><%= c.titleName %> </h5>
+                </div></a>
+            </div>
+        <% }) %>
+    </div>
 </div>
+
+
 <%- include('../partials/footer') %> 

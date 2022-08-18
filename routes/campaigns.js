@@ -5,7 +5,7 @@ const campaignController = require('../controllers/campaigns');
 const isLoggedIn = require('../config/auth');
 
 //route to the new page
-router.get('/index', campaignController.index);
+router.get('/', campaignController.index);
 router.get('/new', isLoggedIn, campaignController.new);
 router.get('/mycampaigns', campaignController.myCampaigns)
 router.get('/:id', campaignController.show);
