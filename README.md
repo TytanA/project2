@@ -1,44 +1,46 @@
+# Campaign Tracker
+
+### A Campaign Builder for your roleplaying game of choice
+
+This web application was made with to store your campaign information onto a database. Simply sign in, click New Campaign, and start building a campaign for a tabletop party. With the ability to add and edit sessions and edit or delete campaigns, you can build a campaign at your own pace.
+
+## Deployed Link:
+
+https://campaigntracker2.herokuapp.com
+
+## Visuals
+
+## Planned Improvements
+
+* Build a home page that will provide Table Top RPG links.
+* Build a page devoted to monsters, and allow users to make their own monsters to added to the page.
+* Build a page devoted to treasure, and allow users to make their own treasure and magic items.
+* Build a character builder page, and allow users to make their own characters, probably build a page devoted to characters completely just the creation. Allow characters to be linked to campaigns.
+* Overal better Stylizing
+  
+## Original Starting Documents
+![Wireframe](https://i.imgur.com/Lv2lRhN.png)
+![Trello Board](https://i.imgur.com/vFBljks.png)
+![ERD](https://i.imgur.com/mu4BoUa.png)
+
+## Technologies Used
+
+node.js
+CSS
+HTML
+Bootstrap
+Mongoose
+Express
+MongoDB
+Heroku
 
 
+## Credit
+Card Art
+https://walterlicinio.itch.io/artworks - the artwork
+https://walterlicinio.itch.io/ - Their 
 
-
-
-
-
-
-
-
-# passport-boilerplate
-
-
-This is your passport boilerplate.
-
-## Setup 
-
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
-
-
-#### Setup your git repo
-0. Setup your `.env` file and add all the things you need! (look at mongoose movies for reference!)
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin main` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin main`
-
-
-#### Setup your login (THE APP WON'T WORK until you do, no VIEWS are setup, or the landing route)
-
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
-
+Kristian\
+Lane     > for putting up with me in the breakout room
+Jeffery /
 
