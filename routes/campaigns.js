@@ -7,7 +7,7 @@ const isLoggedIn = require('../config/auth');
 //route to the new page
 router.get('/', campaignController.index);
 router.get('/new', isLoggedIn, campaignController.new);
-router.get('/mycampaigns', campaignController.myCampaigns)
+router.get('/mycampaigns', isLoggedIn, campaignController.myCampaigns)
 router.get('/:id', campaignController.show);
 router.get('/:id/edit', isLoggedIn, campaignController.edit);
 

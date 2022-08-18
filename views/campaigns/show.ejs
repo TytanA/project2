@@ -1,22 +1,30 @@
 <%- include('../partials/header') %>
     <div class="container">
+        <div class="col-12 justify-content-center">
         <h1>
             <%=campaign.titleName %>
         </h1><br>
     </div>
-    <div class="container">
-        <td>
-            <%=campaign.characterNames.join(', ')  %> </td><br>
-    <td><%=campaign.setting  %> </td><br>
-    <td><%=campaign.equipAndGold  %> </td><br>
-    <td><%=campaign.description  %> </td>
+    <div class="row">
+        <div class="col-md-4" m-3>
+            <h4>Campaign stats</h4>
+            <h5>Characters</h5>
+            <p><%=campaign.characterNames.join(', ')  %></p>
+            <h5>Campaign Setting</h5>
+            <p><%=campaign.setting  %> </p>
+            <h5>Starting Equipment</h5>
+            <p><%=campaign.equipAndGold  %> </p>
+        </div>
+        <div class="col">
+            <p><%=campaign.description  %> </p>
+        </div>
     <% if (user?._id.equals(campaign.user)) { %>
-        <form action="/campaigns/<%= campaign._id %>/edit" method="GET">
-            <button class=' btn btn-secondary' type="submit">EDIT</button>
-                </form>
+        <div>
+            <a class="btn btn-secondary" href="/campaigns/<%= campaign._id %>/edit ">EDIT</a>
                 <form action="/campaigns/<%= campaign._id %>?_method=DELETE" method="POST">
                     <button class='btn btn-secondary' type="submit">DELETE</button>
                 </form> <br><br>
+        </div>
                 <% } %>
     </div>
     <div class="container">
@@ -48,6 +56,7 @@
                         <% }) %>
         </tbody>
     </div>
+</div>
     <div class="container">
         <tbody>
             <% if (user?._id.equals(campaign.user)) { %>
