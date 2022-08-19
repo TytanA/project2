@@ -31,14 +31,14 @@ https://campaigntracker2.herokuapp.com
 
 ## Technologies Used
 
-node.js
-CSS
-HTML
-Bootstrap
-Mongoose
-Express
-MongoDB
-Heroku
+* node.js
+* CSS
+* HTML
+* Bootstrap
+* Mongoose
+* Express
+* MongoDB
+* Heroku
 
 
 ## Credit
