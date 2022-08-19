@@ -1,11 +1,18 @@
 <%- include('../partials/header') %>
-<h1> this is the sessions edit page</h1>
-<form action="/sessions/<%= gSession._id %>?_method=PUT" method="POST">
-    <label>Session Title:
-    <input type="text" name="sessionTitle" value="<%= gSession.sessionTitle %> "></label><br>
-    <label>Encounters:<input type='text' name='encounters' value="<%= gSession.encounters %> "></label><br>
-    <label>Treasure <input type="text" name="treasure" value="<%= gSession.treasure %> "></label><br>
-    <label>Session Description<input type="text" name="sessionDescrip" value="<%= gSession.sessionDescrip %> "></label><br>
-    <input type="submit" value="edit Session">
-</form>
+<div class="container">
+    <h1> Edit Your Session</h1>
+    <div>
+        <form action="/sessions/<%= gSession._id %>?_method=PUT" method="POST">
+            <label class="form-label">Session Title:</label>
+            <input class="form-control" type="text" name="sessionTitle" value="<%= gSession.sessionTitle %> ">
+            <label class="form-label">Encounters:</label>
+            <input class="form-control" type='text' name='encounters' value="<%= gSession.encounters %> ">
+            <label class="form-label">Treasure </label>
+            <input class="form-control" type="text" name="treasure" value="<%= gSession.treasure %> ">
+            <label class="form-label">Session Description</label>
+            <textarea class="form-control" type="text" name="sessionDescrip"><%= gSession.sessionDescrip %></textarea>
+            <input class="btn btn-secondary my-2" type="submit">
+        </form>
+    </div>
+</div>
 <%- include('../partials/footer') %> 

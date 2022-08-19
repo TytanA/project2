@@ -23,7 +23,7 @@
                 <button class='btn btn-secondary' type="submit">EDIT</button>
             </form>
             <form action="/campaigns/<%= campaign._id %>?_method=DELETE" method="POST">
-                <button class='btn btn-secondary' type="submit">DELETE</button>
+                <button class='btn btn-secondary mx-2' type="submit">DELETE</button>
             </form>
         </div>
                 <% } %>
@@ -50,7 +50,7 @@
                     <button class='btn btn-secondary' type="submit">EDIT</button>
                 </form>
                 <form action="/sessions/<%= c._id %>?_method=DELETE" method="POST">
-                    <button class='btn btn-secondary' type="submit">DELETE</button>
+                    <button class='btn btn-secondary mx-2' type="submit">DELETE</button>
                 </form>
             </div>
         <% } %>
@@ -70,7 +70,7 @@
                     <input class="form-control"type="text" name="treasure">
                     <label class="form-label">Session Description</label>
                     <textarea class="form-control" type="text" name="sessionDescrip" style="height: 200px"></textarea>
-                    <input class='btn btn-secondary' type="submit" value="Add Session">
+                    <input class='btn btn-secondary my-2' type="submit" value="Add Session">
                 </form>
             </div>  
         <% } %>
