@@ -42,7 +42,7 @@ Heroku
 
 
 ## Credit
-Card Art
+Card Art and webpages background by Walter Lincínio
 https://walterlicinio.itch.io/artworks - the artwork
 https://walterlicinio.itch.io/ - Their 
 
