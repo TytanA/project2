@@ -12,7 +12,6 @@ module.exports = {
 }
 
 async function myCampaigns(req, res) {
-    console.log(req.user, 'this is the myCampaigns controller')
     try {
         let campaignDocument = await Campaign.find({
             'user': req.user
@@ -50,10 +49,9 @@ function create(req, res) {
     req.body.user = req.user._id;
     Campaign.create(req.body, function (err, campaignDocument) {
         if (err) {
-            console.log(err, 'this is the error');
+            console.log(err);
             return res.redirect('/')
         }
-        console.log(campaignDocument, '<-- newly created campaign')
         // res.redirect() will redirect to the campaigns page once that is built
     })
 

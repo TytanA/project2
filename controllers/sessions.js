@@ -8,7 +8,6 @@ module.exports = {
 }
 
 async function update(req, res) {
-    console.log(req.params.id, '<-req.params.id')
     try {
         const campaignDocument = await Campaign.findOne({
             'gameSession._id': req.params.id,
@@ -50,7 +49,6 @@ async function create(req, res) {
     try {
         let campaignDocument = await Campaign.findById(req.params.id);
         campaignDocument.gameSession.push(req.body);
-        console.log(campaignDocument);
         campaignDocument.save(function (err) {
             res.redirect(`/campaigns/${req.params.id}`)
         })
